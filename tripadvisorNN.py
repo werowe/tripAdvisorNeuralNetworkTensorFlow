@@ -8,7 +8,7 @@ feature_names = ['Usercountry', 'Nrreviews','Nrhotelreviews','Helpfulvotes','Sco
 FIELD_DEFAULTS = [[0], [0], [0], [0], [0],
                   [0], [0], [0], [0], [0],
                   [0], [0], [0], [0], [0],
-                  [0], [0], [0], [0], [0]]
+                  [0], [0], [0], [0], [0], [0]]
 
 def parse_line(line):
     parsed_line = tf.decode_csv(line, FIELD_DEFAULTS)
@@ -64,7 +64,7 @@ Reviewmonth = tf.feature_column.indicator_column(tf.feature_column.categorical_c
 Reviewweekday = tf.feature_column.indicator_column(tf.feature_column.categorical_column_with_identity("Reviewweekday",7))
 
 feature_columns = [Usercountry, Nrreviews,Nrhotelreviews,Helpfulvotes,Periodofstay,
-         Travelertype,Pool,Gym,Tenniscourt,Spa,Casino,Freeinternet,Hotelname,Hotelstars,Nrrooms,Usercontinent,Memberyears,Reviewmonth]
+         Travelertype,Pool,Gym,Tenniscourt,Spa,Casino,Freeinternet,Hotelname,Hotelstars,Nrrooms,Usercontinent,Memberyears,Reviewweekday]
 
 classifier=tf.estimator.DNNClassifier(
     feature_columns=feature_columns,  
@@ -77,11 +77,3 @@ batch_size = 100
 classifier.train(
     steps=1000,
     input_fn=lambda : csv_input_fn("/home/walker/tripAdvisorFL.csv", batch_size))
-
-
-
-
-
-
-
-
