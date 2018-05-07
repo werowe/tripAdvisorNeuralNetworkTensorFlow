@@ -8,7 +8,7 @@ feature_names = ['Usercountry', 'Nrreviews','Nrhotelreviews','Helpfulvotes','Sco
 FIELD_DEFAULTS = [[0], [0], [0], [0], [0],
                   [0], [0], [0], [0], [0],
                   [0], [0], [0], [0], [0],
-                  [0], [0], [0], [0], [0], [0]]
+                  [0], [0], [0], [0], [0]]
 
 def parse_line(line):
     parsed_line = tf.decode_csv(line, FIELD_DEFAULTS)
