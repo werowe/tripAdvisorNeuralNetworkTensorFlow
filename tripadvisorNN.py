@@ -64,7 +64,7 @@ Reviewmonth = tf.feature_column.indicator_column(tf.feature_column.categorical_c
 Reviewweekday = tf.feature_column.indicator_column(tf.feature_column.categorical_column_with_identity("Reviewweekday",7))
 
 feature_columns = [Usercountry, Nrreviews,Nrhotelreviews,Helpfulvotes,Periodofstay,
-         Travelertype,Pool,Gym,Tenniscourt,Spa,Casino,Freeinternet,Hotelname,Hotelstars,Nrrooms,Usercontinent,Memberyears,Reviewweekday]
+         Travelertype,Pool,Gym,Tenniscourt,Spa,Casino,Freeinternet,Hotelname,Hotelstars,Nrrooms,Usercontinent,Memberyears,Reviewmonth,Reviewweekday]
 
 classifier=tf.estimator.DNNClassifier(
     feature_columns=feature_columns,  
