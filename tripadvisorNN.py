@@ -1,7 +1,7 @@
 
 import tensorflow as tf
 
-feature_names = ['Usercountry', 'Nrreviews','Nrhotelreviews','Helpfulvotes','Score','Periodofstay',
+feature_names = ['Usercountry', 'Nrreviews','Nrhotelreviews','Helpfulvotes','Periodofstay',
            'Travelertype','Pool','Gym','Tenniscourt','Spa','Casino','Freeinternet',
                   'Hotelname','Hotelstars','Nrrooms','Usercontinent','Memberyears',
            'Reviewmonth','Reviewweekday']
