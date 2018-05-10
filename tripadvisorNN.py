@@ -37,7 +37,7 @@ def parse_line(line):
     tf.Print(input_=parsed_line[20], data=[parsed_line[20]], message="Reviewweekday")'''
     features = parsed_line  
     d = dict(zip(feature_names, features))
-    print "dictionary", d, " label = ", label    
+    print ("dictionary", d, " label = ", label)    
     return d, label
      
 def csv_input_fn(csv_path, batch_size):
