@@ -87,10 +87,12 @@ Usercontinent = tf.feature_column.indicator_column(tf.feature_column.categorical
 Memberyears = tf.feature_column.numeric_column("Memberyears")
 Reviewmonth = tf.feature_column.indicator_column(tf.feature_column.categorical_column_with_identity("Reviewmonth",12))
 Reviewweekday = tf.feature_column.indicator_column(tf.feature_column.categorical_column_with_identity("Reviewweekday",7))
+'''
+
 feature_columns = [Usercountry, Nrreviews,Nrhotelreviews,Helpfulvotes,Periodofstay,
          Travelertype,Pool,Gym,Tenniscourt,Spa,Casino,Freeinternet,Hotelname,Hotelstars,Nrrooms,Usercontinent,Memberyears,Reviewmonth,Reviewweekday]
 
-'''
+
 classifier=tf.estimator.DNNClassifier(
     feature_columns=feature_columns,  
     hidden_units=[10, 10], 
