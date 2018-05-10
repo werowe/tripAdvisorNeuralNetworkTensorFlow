@@ -10,14 +10,39 @@ FIELD_DEFAULTS = [[0], [0], [0], [0], [0],
                   [0], [0], [0], [0], [0],
                   [0], [0], [0], [0], [0]]
 
+
 def parse_line(line):
     parsed_line = tf.decode_csv(line, FIELD_DEFAULTS)
+    tf.Print(input_=parsed_line[4], data=[parsed_line[4]], message="score")
     label = parsed_line[4]
     del parsed_line[4]
+    tf.Print(input_=parsed_line[1], data=[parsed_line[2]], message="score")
+    tf.Print(input_=parsed_line[2], data=[parsed_line[2]], message="Nrreviews")
+    tf.Print(input_=parsed_line[3], data=[parsed_line[3]], message="Nrreviews")
+    tf.Print(input_=parsed_line[4], data=[parsed_line[3]], message="Nrhotelreviews")
+    tf.Print(input_=parsed_line[5], data=[parsed_line[3]], message="Helpfulvotes")
+    tf.Print(input_=parsed_line[6], data=[parsed_line[3]], message="Periodofstay")
+    tf.Print(input_=parsed_line[7], data=[parsed_line[3]], message="Helpfulvotes")
+    tf.Print(input_=parsed_line[8], data=[parsed_line[3]], message="Periodofstay")
+    tf.Print(input_=parsed_line[9], data=[parsed_line[3]], message="Travelertype")
+    tf.Print(input_=parsed_line[10], data=[parsed_line[3]], message="Pool")
+    tf.Print(input_=parsed_line[11], data=[parsed_line[3]], message="Gym")
+    tf.Print(input_=parsed_line[12], data=[parsed_line[3]], message="Tenniscourt")
+    tf.Print(input_=parsed_line[12], data=[parsed_line[3]], message="Spa")
+    tf.Print(input_=parsed_line[12], data=[parsed_line[3]], message="Casino")
+    tf.Print(input_=parsed_line[13], data=[parsed_line[3]], message="Freeinternet")
+    tf.Print(input_=parsed_line[14], data=[parsed_line[3]], message="Hotelname")
+    tf.Print(input_=parsed_line[15], data=[parsed_line[3]], message="Hotelstars")
+    tf.Print(input_=parsed_line[16], data=[parsed_line[3]], message="Nrrooms")
+    tf.Print(input_=parsed_line[17], data=[parsed_line[3]], message="Usercontinent")
+    tf.Print(input_=parsed_line[18], data=[parsed_line[3]], message="Memberyears")
+    tf.Print(input_=parsed_line[19], data=[parsed_line[3]], message="Reviewmonth")
+    tf.Print(input_=parsed_line[19], data=[parsed_line[3]], message="Reviewweekday")
     features = parsed_line  
     d = dict(zip(feature_names, features))
     print ("dictionary", d, " label = ", label)    
     return d, label
+
 
 def csv_input_fn(csv_path, batch_size):
     dataset = tf.data.TextLineDataset(csv_path)
