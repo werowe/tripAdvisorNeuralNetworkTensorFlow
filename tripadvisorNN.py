@@ -1,6 +1,8 @@
 
 import tensorflow as tf
 
+import numpy as np
+
 feature_names = ['Usercountry', 'Nrreviews','Nrhotelreviews','Helpfulvotes','Periodofstay',
            'Travelertype','Pool','Gym','Tenniscourt','Spa','Casino','Freeinternet',
                   'Hotelname','Hotelstars','Nrrooms','Usercontinent','Memberyears',
@@ -78,3 +80,22 @@ batch_size = 100
 classifier.train(
     steps=100,
     input_fn=lambda : csv_input_fn("/home/walker/tripAdvisorFL.csv", batch_size))
+
+features = {'Usercountry': np.array([233]), 'Nrreviews': np.array([11]),'Nrhotelreviews': np.array([4]),'Helpfulvotes': np.array([13]),'Periodofstay': np.array([582]),'Travelertype': np.array([715]),'Pool' : np.array([0]),'Gym' : np.array([1]),'Tenniscourt' : np.array([0]),'Spa' : np.array([0]),'Casino' : np.array([0]),'Freeinternet' : np.array([1]),'Hotelname' : np.array([3367]),'Hotelstars' : np.array([3]),'Nrrooms' : np.array([3773]),'Usercontinent' : np.array([1245]),'Memberyears' : np.array([9]),'Reviewmonth' : np.array([730]),'Reviewweekday' : np.array([852])}
+
+label = np.array([5])
+
+def test_input_fn():
+    return features, label
+
+def predict_input_fn():   
+    return features 
+
+'''accuracy_score = classifier.evaluate(input_fn=test_input_fn)["accuracy"]
+
+print("\nTest Accuracy: {0:f}\n".format(accuracy_score))'''
+
+predict = classifier.predict(input_fn=predict_input_fn)
+
+
+
