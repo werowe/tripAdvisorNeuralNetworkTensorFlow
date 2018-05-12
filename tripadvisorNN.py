@@ -97,7 +97,7 @@ print("\nTest Accuracy: {0:f}\n".format(accuracy_score))'''
 
 predict = classifier.predict(input_fn=predict_input_fn)
 
-expected = [1,2,3,4,5]
+expected = [5]
 
 prediction = classifier.predict(input_fn=predict_input_fn)
 
