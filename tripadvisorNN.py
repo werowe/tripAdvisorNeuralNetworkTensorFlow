@@ -97,5 +97,13 @@ print("\nTest Accuracy: {0:f}\n".format(accuracy_score))'''
 
 predict = classifier.predict(input_fn=predict_input_fn)
 
+expected = [1,2,3,4,5]
+
+prediction = classifier.predict(input_fn=predict_input_fn)
+
+for pred_dict, expec in zip(prediction, expected):
+    class_id = pred_dict['class_ids'][0]
+    probability = pred_dict['probabilities'][class_id]
+    print ('class_ids=', class_id, ' probabilities=',  probability)
 
 
