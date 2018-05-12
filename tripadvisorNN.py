@@ -72,7 +72,7 @@ feature_columns = [Usercountry, Nrreviews,Nrhotelreviews,Helpfulvotes,Periodofst
 classifier=tf.estimator.DNNClassifier(
     feature_columns=feature_columns,  
     hidden_units=[10, 10], 
-    n_classes=5,
+    n_classes=6,
     model_dir="/tmp")
 batch_size = 100
 classifier.train(
