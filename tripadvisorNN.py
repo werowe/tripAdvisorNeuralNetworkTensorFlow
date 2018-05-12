@@ -76,5 +76,5 @@ classifier=tf.estimator.DNNClassifier(
     model_dir="/tmp")
 batch_size = 100
 classifier.train(
-    steps=1000,
+    steps=100,
     input_fn=lambda : csv_input_fn("/home/walker/tripAdvisorFL.csv", batch_size))
