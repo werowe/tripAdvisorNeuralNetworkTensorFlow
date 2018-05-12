@@ -46,27 +46,29 @@ def csv_input_fn(csv_path, batch_size):
     dataset = dataset.shuffle(1000).repeat().batch(batch_size)
     return dataset
 
-Usercountry = tf.feature_column.numeric_column(("Usercountry",47))
+Usercountry = tf.feature_column.numeric_column("Usercountry")
 Nrreviews = tf.feature_column.numeric_column("Nrreviews")
 Nrhotelreviews = tf.feature_column.numeric_column("Nrhotelreviews")
 Helpfulvotes = tf.feature_column.numeric_column("Helpfulvotes")
 Periodofstay = tf.feature_column.numeric_column("Periodofstay")
-Travelertype = tf.feature_column.numeric_column(("Travelertype",5))
-Pool = tf.feature_column.numeric_column(("Pool",2))
-Gym = tf.feature_column.numeric_column(("Gym",2))
-Tenniscourt = tf.feature_column.numeric_column(("Tenniscourt",2))
-Spa = tf.feature_column.numeric_column(("Spa",2))
-Casino = tf.feature_column.numeric_column(("Casino",2))
-Freeinternet = tf.feature_column.numeric_column(("Freeinternet",2))
-Hotelname = tf.feature_column.numeric_column(("Hotelname",22))
-Hotelstars = tf.feature_column.numeric_column(("Hotelstars",5))
+Travelertype = tf.feature_column.numeric_column("Travelertype")
+Pool = tf.feature_column.numeric_column("Pool")
+Gym = tf.feature_column.numeric_column("Gym")
+Tenniscourt = tf.feature_column.numeric_column("Tenniscourt")
+Spa = tf.feature_column.numeric_column("Spa")
+Casino = tf.feature_column.numeric_column("Casino")
+Freeinternet = tf.feature_column.numeric_column("Freeinternet")
+Hotelname = tf.feature_column.numeric_column("Hotelname")
+Hotelstars = tf.feature_column.numeric_column("Hotelstars")
 Nrrooms = tf.feature_column.numeric_column("Nrrooms")
-Usercontinent = tf.feature_column.numeric_column(("Usercontinent",6))
+Usercontinent = tf.feature_column.numeric_column("Usercontinent")
 Memberyears = tf.feature_column.numeric_column("Memberyears")
-Reviewmonth = tf.feature_column.numeric_column(("Reviewmonth",12))
-Reviewweekday = tf.feature_column.numeric_column(("Reviewweekday",7))
+Reviewmonth = tf.feature_column.numeric_column("Reviewmonth")
+Reviewweekday = tf.feature_column.numeric_column("Reviewweekday")
+
 feature_columns = [Usercountry, Nrreviews,Nrhotelreviews,Helpfulvotes,Periodofstay,
          Travelertype,Pool,Gym,Tenniscourt,Spa,Casino,Freeinternet,Hotelname,Hotelstars,Nrrooms,Usercontinent,Memberyears,Reviewmonth,Reviewweekday]
+
 classifier=tf.estimator.DNNClassifier(
     feature_columns=feature_columns,  
     hidden_units=[10, 10], 
